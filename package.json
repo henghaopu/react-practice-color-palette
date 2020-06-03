@@ -1,0 +1,25 @@
+{
+  "name": "react-practice-color-palettes",
+  "version": "0.1.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henghaopu/react-practice-color-palette.git"
+  },
+  "keywords": [
+    "react",
+    "colors",
+    "color",
+    "palette"
+  ],
+  "author": "Heng-Hao Pu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/henghaopu/react-practice-color-palette/issues"
+  },
+  "homepage": "https://github.com/henghaopu/react-practice-color-palette#readme"
+}
