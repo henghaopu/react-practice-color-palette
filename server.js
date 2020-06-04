@@ -1,14 +1,23 @@
-const express = require('express');
 const dotenv = require('dotenv');
 const colors = require('colors');
-// Route files
-const palettes = require('./routes/palettes');
+const express = require('express');
+const connectDB = require('./config/db');
 
-// Load env vars
+// Route files
+const palettes = require('./routes/api/palettes');
+
+// Load environment variables from the .env file into Node.js' process.env
 dotenv.config({ path: './config/config.env' });
+
+// Connect to database
+connectDB();
 
 // Initialize the app variable with express
 const app = express();
+
+// Initialize the middleware for the body parser
+// Allow routers to get data from req.body
+app.use(express.json({ extended: false }));
 
 // A route contains
 // (1) an HTTP verb (GET, POST, ...) that identify the allowable request type
