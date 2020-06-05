@@ -49,7 +49,3 @@ app.listen(
       .yellow.bold
   )
 );
-
-process.on('SIGINT', function () {
-  process.exit(1);
-});
