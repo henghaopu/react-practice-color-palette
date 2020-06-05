@@ -1,5 +1,6 @@
 const dotenv = require('dotenv');
 const colors = require('colors');
+const cors = require('cors');
 const express = require('express');
 const connectDB = require('./config/db');
 
@@ -18,6 +19,9 @@ const app = express();
 // Initialize the middleware for the body parser
 // Allow routers to get data from req.body
 app.use(express.json({ extended: false }));
+
+// Enable All CORS Requests
+app.use(cors());
 
 // A route contains
 // (1) an HTTP verb (GET, POST, ...) that identify the allowable request type
@@ -41,6 +45,11 @@ const PORT = process.env.PORT || 5000;
 app.listen(
   PORT,
   console.log(
-    `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
+    `CORS-enabled Server running in ${process.env.NODE_ENV} mode on port ${PORT}`
+      .yellow.bold
   )
 );
+
+process.on('SIGINT', function () {
+  process.exit(1);
+});
