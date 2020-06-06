@@ -23,7 +23,7 @@ class App extends Component {
     const { isLoading, palettes } = this.state;
 
     return (
-      <div>{!isLoading ? <Palette {...palettes[4]} /> : 'Loading...'}</div>
+      <div>{!isLoading ? <Palette {...palettes[5]} /> : 'Loading...'}</div>
     );
   }
 }
