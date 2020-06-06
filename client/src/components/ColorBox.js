@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './ColorBox.css';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 class ColorBox extends Component {
   render() {
@@ -7,7 +8,9 @@ class ColorBox extends Component {
     return (
       <div className='ColorBox' style={{ backgroundColor }}>
         <div className='copy-container'>
-          <button className='copy-button'>Copy</button>
+          <CopyToClipboard text={backgroundColor}>
+            <button className='copy-button'>Copy</button>
+          </CopyToClipboard>
           <div className='box-content'>
             <span>{name}</span>
           </div>
