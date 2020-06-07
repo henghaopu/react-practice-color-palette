@@ -9,14 +9,26 @@ class ColorBox extends Component {
     this.state = {
       copied: false,
     };
+
+    this.changeCopyState = this.changeCopyState.bind(this);
+  }
+
+  changeCopyState() {
+    // optional callback will be called after rendered
+    // React recommand to use componentDidUpdate()
+    this.setState({ copied: true }, () => {
+      setTimeout(() => this.setState({ copied: false }), 420 * 3.5);
+    });
   }
 
   render() {
     const { backgroundColor, name } = this.props;
+    const { copied } = this.state;
+
     return (
       <div className='ColorBox' style={{ backgroundColor }}>
         <div className='copy-container'>
-          <CopyToClipboard text={backgroundColor}>
+          <CopyToClipboard text={backgroundColor} onCopy={this.changeCopyState}>
             <button className='copy-button'>Copy</button>
           </CopyToClipboard>
 
@@ -29,7 +41,14 @@ class ColorBox extends Component {
           More
         </span>
 
-        <div className='copy-overlay' style={{ backgroundColor }}></div>
+        <div
+          className={`copy-overlay${copied ? ' show' : ''}`}
+          style={{ backgroundColor }}
+        ></div>
+        <div className={`copy-msg${copied ? ' show' : ''}`}>
+          <h1>Copied!</h1>
+          <p>{backgroundColor}</p>
+        </div>
       </div>
     );
   }
