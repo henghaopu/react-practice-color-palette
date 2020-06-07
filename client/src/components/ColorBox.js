@@ -12,10 +12,12 @@ class ColorBox extends Component {
             <button className='copy-button'>Copy</button>
           </CopyToClipboard>
           <div className='box-content'>
-            <span>{name}</span>
+            <span tabIndex='0'>{name}</span>
           </div>
         </div>
-        <span className='see-more'>More</span>
+        <span className='see-more' tabIndex='0'>
+          More
+        </span>
       </div>
     );
   }

@@ -27,7 +27,8 @@
   cursor: pointer;
 }
 
-.ColorBox:hover .copy-button {
+.ColorBox:hover .copy-button,
+.copy-button:focus {
   opacity: 1;
   transition: 0.5s;
 }
