@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Palette from './components/Palette';
 import { getPalettes } from './utils/api';
+import { generatePalette } from './utils/colorHelper';
 
 class App extends Component {
   constructor(props) {
@@ -21,6 +22,11 @@ class App extends Component {
 
   render() {
     const { isLoading, palettes } = this.state;
+
+    // test
+    if (palettes.length) {
+      console.log(generatePalette(palettes[4]));
+    }
 
     return (
       <div>{!isLoading ? <Palette {...palettes[5]} /> : 'Loading...'}</div>
