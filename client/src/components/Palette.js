@@ -10,8 +10,8 @@ class Palette extends Component {
         {/* Navbar */}
 
         <div className='Palette-colors'>
-          {colors.map(({ color, name }) => (
-            <ColorBox key={name} backgroundColor={color} name={name} />
+          {colors[500].map(({ hex, name }) => (
+            <ColorBox key={name} backgroundColor={hex} name={name} />
           ))}
         </div>
 
