@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import ColorBox from './ColorBox';
-import './Palette.css';
-import Slider from 'rc-slider';
+
+// order counts
 import 'rc-slider/assets/index.css';
+import './Palette.css';
+
+import Slider from 'rc-slider';
 
 class Palette extends Component {
   constructor(props) {
@@ -23,13 +26,16 @@ class Palette extends Component {
     return (
       <div className='Palette'>
         {/* Navbar */}
-        <Slider
-          defaultValue={level}
-          min={100}
-          max={900}
-          step={100}
-          onAfterChange={this.handleSliderChange}
-        />
+        <div className='slider'>
+          <Slider
+            tabindex={1}
+            defaultValue={level}
+            min={100}
+            max={900}
+            step={100}
+            onAfterChange={this.handleSliderChange}
+          />
+        </div>
         <div className='Palette-colors'>
           {colors[level].map(({ hex, name }) => (
             <ColorBox key={name} backgroundColor={hex} name={name} />
