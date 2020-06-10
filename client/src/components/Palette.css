@@ -6,29 +6,3 @@
 .Palette-colors {
   height: 90%;
 }
-
-.slider {
-  width: 20%;
-  margin: 0 0.75rem;
-  display: inline-block;
-}
-
-.rc-slider-track {
-  background-color: transparent;
-}
-
-.rc-slider-rail {
-  height: 0.4rem;
-}
-
-.rc-slider-handle {
-  background-color: rgb(7, 214, 128);
-  border-width: 0;
-  margin-top: -4px;
-}
-.rc-slider-handle:focus,
-.rc-slider-handle:active,
-.rc-slider-handle:hover {
-  background-color: yellow;
-  border: 1px solid rgb(7, 214, 128);
-}
