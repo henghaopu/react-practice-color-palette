@@ -20,8 +20,8 @@ class Palette extends Component {
     this.setState({ level: newLevel });
   }
 
-  changeFormat(value) {
-    this.setState({ format: value });
+  changeFormat(e) {
+    this.setState({ format: e.target.value });
   }
 
   render() {

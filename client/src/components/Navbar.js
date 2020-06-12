@@ -8,24 +8,8 @@ import 'rc-slider/assets/index.css';
 import './Navbar.css';
 
 class Navbar extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      format: this.props.format,
-    };
-
-    this.changeFormat = this.changeFormat.bind(this);
-  }
-
-  changeFormat(e) {
-    this.setState({ format: e.target.value });
-    this.props.changeFormat(e.target.value);
-  }
-
   render() {
-    const { level, changeLevel } = this.props;
-    const { format } = this.state;
+    const { level, changeLevel, format, changeFormat } = this.props;
     return (
       <nav className='Navbar'>
         <div className='logo'>
@@ -45,7 +29,7 @@ class Navbar extends Component {
           </div>
         </div>
         <div className='select-container'>
-          <NativeSelect value={format} onChange={this.changeFormat}>
+          <NativeSelect value={format} onChange={changeFormat}>
             <option value='hex'>HEX - #ffffff</option>
             <option value='rgb'>RGB - rgb(255, 255, 255)</option>
             <option value='rgba'>RGBA - rgba(255, 255, 255, 1.0)</option>
