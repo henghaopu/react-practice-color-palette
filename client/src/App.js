@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import Palette from './components/Palette';
 import { getPalettes } from './utils/api';
 import { generatePalette } from './utils/colorHelper';
@@ -20,13 +21,30 @@ class App extends Component {
     // Re-render component
   }
 
+  findPalette(id) {
+    return this.state.palettes.find((palette) => palette.id === id);
+  }
+
   render() {
-    const { isLoading, palettes } = this.state;
+    const { isLoading } = this.state;
 
     return (
       <div>
         {!isLoading ? (
-          <Palette {...generatePalette(palettes[4])} />
+          <Switch>
+            <Route exact path='/' render={() => <h1>Palette List</h1>} />
+            <Route
+              exact
+              path='/palette/:id'
+              render={(routeProps) => (
+                <Palette
+                  {...generatePalette(
+                    this.findPalette(routeProps.match.params.id)
+                  )}
+                />
+              )}
+            />
+          </Switch>
         ) : (
           'Loading...'
         )}
