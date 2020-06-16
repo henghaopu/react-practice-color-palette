@@ -36,7 +36,9 @@ class App extends Component {
             <Route
               exact
               path='/'
-              render={() => <PaletteList palettes={palettes} />}
+              render={(routeProps) => (
+                <PaletteList palettes={palettes} {...routeProps} />
+              )}
             />
             <Route
               exact
