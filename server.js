@@ -3,6 +3,7 @@ const colors = require('colors');
 const cors = require('cors');
 const express = require('express');
 const connectDB = require('./config/db');
+const path = require('path');
 
 // Route files
 const palettes = require('./routes/api/palettes');
@@ -31,10 +32,20 @@ app.use(cors());
 // Create a route that responds only to HTTP GET request to the root path
 // Postman can send a GET request to the root path based on the base URI
 // simply put, hit the endpoint with GET mothod
-app.get('/', (req, res) => res.send('API running'));
+// app.get('/', (req, res) => res.send('API running'));
 
 // Mount the (palettes) router (with path /api/v1/palettes) on the app
 app.use('/api/v1/palettes', palettes);
+
+// Serve static assets in production
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
 const PORT = process.env.PORT || 5000;
 
